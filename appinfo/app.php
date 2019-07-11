@@ -26,13 +26,9 @@ use OCP\AppFramework\QueryException;
 
 try {
 	\OC::$server->getCalendarResourceBackendManager()
-		->registerBackend(\OC::$server->query(
-			Integration\ResourceBackend::class
-		));
+		->registerBackend(Integration\ResourceBackend::class);
 	\OC::$server->getCalendarRoomBackendManager()
-		->registerBackend(\OC::$server->query(
-			Integration\RoomBackend::class
-		));
+		->registerBackend(Integration\RoomBackend::class);
 } catch(QueryException $ex) {
 	\OC::$server->getLogger()->logException($ex);
 }
