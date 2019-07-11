@@ -23,7 +23,6 @@
 import Vue from 'vue';
 import App from './App.vue';
 import store from './store';
-require("babel-polyfill");
 
 // bind to window
 Vue.prototype.t = t;
