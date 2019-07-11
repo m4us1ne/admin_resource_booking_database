@@ -24,8 +24,8 @@ class Version000001Date20180622151836 extends SimpleMigrationStep {
 
 		$types = ['resources', 'rooms'];
 		foreach($types as $type) {
-			if (!$schema->hasTable('admin_resource_booking_db_' . $type)) {
-				$table = $schema->createTable('admin_resource_booking_db_' . $type);
+			if (!$schema->hasTable('admin_resource_' . $type)) {
+				$table = $schema->createTable('admin_resource_' . $type);
 
 				$table->addColumn('id', Type::BIGINT, [
 					'autoincrement' => true,
@@ -50,10 +50,10 @@ class Version000001Date20180622151836 extends SimpleMigrationStep {
 					'length' => 4000,
 				]);
 
-				$table->setPrimaryKey(['id'], 'admin_resource_booking_db_' . $type . '_id_idx');
-				$table->addIndex(['resource_id'], 'admin_resource_booking_db_' . $type . '_backendresource_idx');
-				$table->addIndex(['email'], 'admin_resource_booking_db_' . $type . '_email_idx');
-				$table->addIndex(['displayname'], 'admin_resource_booking_db_' . $type . '_displayname_idx');
+				$table->setPrimaryKey(['id'], 'ar_' . $type . '_id_idx');
+				$table->addIndex(['resource_id'], 'ar_' . $type . '_rid_idx');
+				$table->addIndex(['email'], 'ar_' . $type . '_email_idx');
+				$table->addIndex(['displayname'], 'ar_' . $type . '_dn_idx');
 			}
 		}
 
