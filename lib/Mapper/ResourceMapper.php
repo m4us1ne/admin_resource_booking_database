@@ -33,6 +33,6 @@ class ResourceMapper extends AbstractMapper {
 	 * @return string
 	 */
 	protected function getTableName(): string {
-		return 'admin_resource_booking_db_resources';
+		return 'admin_resource_resources';
 	}
 }
